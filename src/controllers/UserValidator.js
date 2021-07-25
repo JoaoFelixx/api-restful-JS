@@ -1,0 +1,3 @@
+exports.UserValidator = (email, password) => {
+  
+}
