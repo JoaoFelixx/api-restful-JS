@@ -1,20 +1,14 @@
-const { Router } = require('express');
+const { Router }           = require('express');
+const createUserController = require('../useCases/create/createUserController');
+const deleteUserController = require('../useCases/delete/deleUserController');
+const getUserController    = require('../useCases/get/getUserController');
 
 const router = Router();
 
-router.get('api/v1/users/user_id?', (req, res) => {
+router.get('/api/v1/users', getUserController);
 
-});
+router.post('/api/v1/users', createUserController);
 
-router.post('api/v1/users', (req, res) => {
-  
-})
+router.delete('/api/v1/users/:_id', deleteUserController);
 
-router.put('api/v1/users/user_id', (req, res) => {
-  
-})
-router.delete('api/v1/users/user_id', (req, res) => {
-  
-})
-
-module.exports = { router }
+module.exports = { router };

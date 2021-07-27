@@ -1,3 +1,0 @@
-exports.UserValidator = (email, password) => {
-  
-}

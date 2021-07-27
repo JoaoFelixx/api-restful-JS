@@ -4,4 +4,4 @@ module.exports = {
   password: 'root',
   port: 3306,
   database: 'users_csp'
-}
+};
