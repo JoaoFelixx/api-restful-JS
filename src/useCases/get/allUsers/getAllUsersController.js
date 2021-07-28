@@ -1,6 +1,6 @@
 const getAllUsers = require('./getAllUsers');
 
-async function getUserController(request, response) {
+async function getAllUsersController(request, response) {
   return await getAllUsers()
     .then(([rows]) => response.status(200).json(rows))
       .catch((err) =>{ 
@@ -8,4 +8,4 @@ async function getUserController(request, response) {
         response.sendStatus(500)}) 
 }
 
-module.exports = getUserController;
+module.exports = getAllUsersController;

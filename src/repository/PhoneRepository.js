@@ -8,29 +8,20 @@ class PhoneRepository {
     })
   }
 
-  async createPhoneNumber(_id, phoneNumbers) {
-    return new Promise(async (resolve, reject) => {
+  async createPhoneNumber(_id, phoneNumber) {
 
-      await connection.execute(
-        'INSERT INTO phones (phone_id, phone_number) VALUES (?,?)',
-        [_id, phoneNumbers],
-
-        (err) => { return err ? reject(err) : resolve() }
-      )
-
-    })
+    return await connection.promise().execute(
+      'INSERT INTO phones (phone_id, phone_number) VALUES (?,?)',
+      [_id, phoneNumber]
+    )
   }
 
-  async deletePhoneNumber(_id) {
-    return new Promise(async (resolve, reject) => {
+  async deletePhoneNumber(phone_number) {
 
-      await connection.execute(
-        'DELETE FROM `phones` WHERE phone_id = ?',
-        [_id],
-        (err) => err ? reject(err) : resolve()
-      )
-
-    })
+    return await connection.promise().execute(
+      'DELETE FROM `phones` WHERE phone_number = ?',
+      [phone_number],
+    )
   }
 }
 

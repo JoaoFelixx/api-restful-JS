@@ -1,4 +1,4 @@
-const validator  = require("../../controllers/Validator");
+const validator  = require("../../../controllers/Validator");
 const deleteUser = require('./deleteUser');
 
 async function deleteUserController(request, response) {
@@ -11,7 +11,8 @@ async function deleteUserController(request, response) {
     .then(
       () => response.status(202).json({ result: 'Deleted User' }))
     .catch(
-      (err) => response.status(400).json({ result: 'Error, user not deleted' }))
+      (err) => { console.log(err)
+        response.status(400).json({ result: 'Error, user not deleted' })})
 }
 
 module.exports = deleteUserController;
