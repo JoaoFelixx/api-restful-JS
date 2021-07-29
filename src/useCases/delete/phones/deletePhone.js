@@ -1,9 +1,9 @@
-const phoneRepository = require('../../../repository/PhoneRepository');
+const { removeByPhoneNumber } = require('../../../repository/PhoneRepository');
 
 async function deletePhone(phone_number) {
   try {
 
-    return await phoneRepository.deletePhoneNumber(phone_number)
+    return await removeByPhoneNumber(phone_number)
 
   } catch (error) {
     throw new Error(error)

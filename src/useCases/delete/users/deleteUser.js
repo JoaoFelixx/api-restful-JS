@@ -4,11 +4,9 @@ const phoneRepository = require('../../../repository/PhoneRepository');
 async function deleteUser(_id) {
   try {
 
-    if (await userRepository.deleteUser(_id))
-      return await phoneRepository.deletePhoneNumber(_id)
+    await userRepository.remove(_id)
+    await phoneRepository.removeById(_id)
     
-    throw new Error()
-
   } catch (error) {
     throw new Error(error)
   }

@@ -8,21 +8,21 @@ class UserRepository {
     });
   }
 
-  async selectAll() {
+  async get() {
 
     return await connection.promise().query(
       'SELECT * FROM `users` INNER JOIN phones ON users.phone_id = phones.phone_id'
     )
   }
 
-  async selectByEmail(email) {
+  async getByEmail(email) {
     return await connection.promise().query(
       'SELECT * FROM `users` WHERE `email` = ?',
       [email]
     )
   }
 
-  async createUser(_id, user) {
+  async add(_id, user) {
     const { first_name, last_name, email } = user;
 
     return await connection.promise().execute(
@@ -31,14 +31,14 @@ class UserRepository {
     )
   }
 
-  async deleteUser(_id) {
+  async remove(_id) {
     return await connection.promise().execute(
       'DELETE FROM `users` WHERE user_id = ?',
       [_id]
     )
   }
 
-  async updateUser(first_name, last_name, email) {
+  async edit(first_name, last_name, email) {
     return await connection.promise().execute(
       'UPDATE `users` SET first_name = ?, last_name = ?, email = ?',
       [first_name, last_name, email]

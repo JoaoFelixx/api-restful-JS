@@ -1,9 +1,9 @@
-const userRepository = require('../../../repository/UserRepository');
+const { getByEmail } = require('../../../repository/UserRepository');
 
 async function getUserByEmail(email) {
   try {
 
-    return await userRepository.selectByEmail(email)
+    return await getByEmail(email)
 
   } catch(error) {
     throw new Error(error)

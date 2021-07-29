@@ -4,13 +4,13 @@ const phoneRepository = require('../../../repository/PhoneRepository');
 async function createUser(_id, user) {
   try {
 
-    if (await phoneRepository.createPhoneNumber(_id, user.phone_number))
-      return await userRepository.createUser(_id, user)
+    if (await phoneRepository.add(_id, user.phone_number))
+      return await userRepository.add(_id, user)
     
-    throw new Error()
+    throw new Error();
 
   } catch (error) {
-    throw new Error(error)
+    throw new Error(error);
   }
 
 }

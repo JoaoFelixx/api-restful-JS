@@ -1,9 +1,9 @@
-const phoneRepository = require('../../../repository/PhoneRepository')
+const { add } = require('../../../repository/PhoneRepository')
 
 async function createPhone(_id, phone_number) {
   try {
 
-    return await phoneRepository.createPhoneNumber(_id, phone_number)
+    return await add(_id, phone_number)
 
   } catch (error) {
     throw new Error(error)
