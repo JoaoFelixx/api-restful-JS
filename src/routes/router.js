@@ -1,10 +1,10 @@
 const { Router }               = require('express');
 
-const createUserController     = require('../useCases/create/createUserController');
-const deleteUserController     = require('../useCases/delete/deleUserController');
 const getAllUsersController    = require('../useCases/get/allUsers/getAllUsersController');
 const getUserByEmailController = require('../useCases/get/byEmail/getUserByEmailController')
+const createUserController     = require('../useCases/create/createUserController');
 const updateUserController     = require('../useCases/update/updateUserController')
+const deleteUserController     = require('../useCases/delete/deleUserController');
 
 const router = Router();
 

@@ -8,4 +8,5 @@ try {
 
 } catch (error) {
   console.log('Refused connection, error: ', error)
+  throw new Error(error)
 }

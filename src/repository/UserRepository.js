@@ -9,7 +9,6 @@ class UserRepository {
   }
 
   async get() {
-
     return await connection.promise().query(
       'SELECT * FROM `users` INNER JOIN phones ON users.phone_id = phones.phone_id'
     )

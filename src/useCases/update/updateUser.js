@@ -6,7 +6,8 @@ async function updateUser(user) {
     const { first_name, last_name, email, new_phone_number, old_phone_number } = user;
     
     await User.edit(first_name, last_name, email);
-    await Phone.edit(new_phone_number, old_phone_number)
+    
+    await Phone.edit(new_phone_number, old_phone_number);
 
 
   } catch (error) {

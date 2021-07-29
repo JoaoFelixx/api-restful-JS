@@ -1,7 +1,7 @@
 module.exports = {
-  host: 'localhost',
-  user: 'admin',
-  password: 'root',
-  port: 3306,
-  database: 'users_csp'
+  host: '', // ex localhost
+  user: '', // ex root
+  password: '', // ex root
+  port: '', // por padrão geralmente é 3306
+  database: '' // o nome do banco de dados desenvolvido por mim é users_csp
 };

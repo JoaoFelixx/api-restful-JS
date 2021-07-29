@@ -14,7 +14,7 @@ async function getUserByEmailController(request, response) {
 
   return await getUserByEmail(email)
     .then(([rows]) => response.status(200).json(rows))
-    .catch((err) => console.log(err))
+    .catch((err) => response.sendStatus(404))
 
 }
 

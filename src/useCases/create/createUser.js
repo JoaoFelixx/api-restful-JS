@@ -11,7 +11,6 @@ async function createUser(_id, user) {
   } catch (error) {
     throw new Error(error);
   }
-
 }
 
 module.exports = createUser;

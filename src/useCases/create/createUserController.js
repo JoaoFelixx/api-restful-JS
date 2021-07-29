@@ -4,7 +4,7 @@ const createUser  = require('./createUser');
 
 async function createUserController(request, response) {
   if (!request.body.first_name || !request.body.last_name || !request.body.email || !request.body.phone_number)
-    return response.status(400).json({ result: 'Bad request' })
+    return response.sendStatus(400);
 
   const { first_name, last_name, email, phone_number } = request.body;
   const _id = v4()
