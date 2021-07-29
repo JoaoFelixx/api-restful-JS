@@ -1,5 +1,5 @@
 const { v4 }      = require('uuid');
-const validator   = require('../../../controllers/Validator')
+const validator   = require('../../controllers/Validator')
 const createUser  = require('./createUser');
 
 async function createUserController(request, response) {
@@ -19,8 +19,9 @@ async function createUserController(request, response) {
 
   return await createUser(_id, request.body)
     .then(
-      () => response.status(201).json({ result: 'User Created' }))
-    .catch((err) => response.status(400).json({ result: 'Email or number already exists' }))
+      () => response.sendStatus(201))
+    .catch(
+      (err) => response.status(400).json({ result: 'Email or number already exists' }))
 }
 
 module.exports = createUserController;

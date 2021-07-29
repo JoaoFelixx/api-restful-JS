@@ -40,8 +40,8 @@ class UserRepository {
 
   async edit(first_name, last_name, email) {
     return await connection.promise().execute(
-      'UPDATE `users` SET first_name = ?, last_name = ?, email = ?',
-      [first_name, last_name, email]
+      'UPDATE `users` SET first_name = ?, last_name = ?, email = ?  WHERE email = ?',
+      [first_name, last_name, email, email]
     )
   }
 }

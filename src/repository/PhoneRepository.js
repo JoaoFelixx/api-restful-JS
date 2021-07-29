@@ -11,7 +11,7 @@ class PhoneRepository {
   async add(_id, phoneNumber) {
 
     return await connection.promise().execute(
-      'INSERT INTO phones (phone_id, phone_number) VALUES (?,?)',
+      'INSERT INTO `phones` (phone_id, phone_number) VALUES (?,?)',
       [_id, phoneNumber]
     )
   }
@@ -20,16 +20,16 @@ class PhoneRepository {
 
     return await connection.promise().execute(
       'DELETE FROM `phones` WHERE phone_id = ?',
-      [_id],
+      [_id]
     )
   }
 
-  async removeByPhoneNumber(phone_number) {
+  async edit(new_phone_number, old_phone_number) {
     return await connection.promise().execute(
-      'DELETE FROM `phones` WHERE phone_number = ?',
-      [phone_number],
-    )
-  }
+      'UPDATE `phones` SET phone_number = ? WHERE phone_number = ?',
+      [new_phone_number, old_phone_number]
+    ) 
+  } 
 }
 
 module.exports = new PhoneRepository()

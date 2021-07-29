@@ -22,21 +22,43 @@ class Validator {
 
   }
 
-  isPhoneNumber(phone_numbers) {
+  isPhoneNumber(phone_number) {
     const error = [];
 
-    if (typeof phone_numbers != 'string') {
+    if (typeof phone_number != 'string') {
       error.push('Phone Number is invalid')
 
       return [error]
 
     }
-    const numbers = phone_numbers.replace(/[^0-9]/g, '');
+    const numbers = phone_number.replace(/[^0-9]/g, '');
 
-    if (!typeof parseInt(numbers) == 'number' || phone_numbers.length > 16)
+    if (!typeof parseInt(numbers) == 'number' || phone_number.length > 16)
       error.push('Phone number is invalid');
 
     return [error]
+  }
+
+  isPhoneNumbers(phone_number_1, phone_number_2) {
+    const error = [];
+
+    if (typeof phone_number_1 != 'string' || typeof phone_number_2 != 'string') {
+      error.push('Phone number(s) is invalid');
+
+      return [error]
+    }
+
+    const numbers1 = phone_number_1.replace(/[^0-9]/g, '');
+    const numbers2 = phone_number_2.replace(/[^0-9]/g, '');
+
+    if (!typeof parseInt(numbers1) == 'number' || phone_number_1.length > 16)
+      error.push('New phone number is invalid');
+
+    if (!typeof parseInt(numbers2) == 'number' || phone_number_2.length > 16)
+      error.push('Old phone number(s) is invalid');
+
+    return [error]
+
   }
 
   isId(_id) {
