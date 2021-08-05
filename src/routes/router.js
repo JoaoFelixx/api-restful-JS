@@ -14,7 +14,7 @@ router.get('/api/v1/users/filterbyemail/:email', getUserByEmailController);
 
 router.post('/api/v1/users', createUserController);
 
-router.put('/api/v1/users', updateUserController)
+router.put('/api/v1/users/:_id', updateUserController)
 
 router.delete('/api/v1/users/:_id', deleteUserController);
 

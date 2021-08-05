@@ -22,10 +22,10 @@ class PhoneRepository {
     )
   }
 
-  async edit(new_phone_number, old_phone_number) {
+  async edit(phone_number, _id) {
     return await connection.promise().execute(
-      'UPDATE `phones` SET phone_number = ? WHERE phone_number = ?',
-      [new_phone_number, old_phone_number]
+      'UPDATE `phones` SET phone_number = ? WHERE phone_id = ?',
+      [phone_number, _id]
     ) 
   } 
 }

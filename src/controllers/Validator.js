@@ -39,28 +39,6 @@ class Validator {
     return [error]
   }
 
-  isPhoneNumbers(phone_number_1, phone_number_2) {
-    const error = [];
-
-    if (typeof phone_number_1 != 'string' || typeof phone_number_2 != 'string') {
-      error.push('Phone number(s) is invalid');
-
-      return [error]
-    }
-
-    const numbers1 = phone_number_1.replace(/[^0-9]/g, '');
-    const numbers2 = phone_number_2.replace(/[^0-9]/g, '');
-
-    if (!typeof parseInt(numbers1) == 'number' || phone_number_1.length > 16)
-      error.push('New phone number is invalid');
-
-    if (!typeof parseInt(numbers2) == 'number' || phone_number_2.length > 16)
-      error.push('Old phone number(s) is invalid');
-
-    return [error]
-
-  }
-
   isId(_id) {
     const REGEX_ID = new RegExp("(?=.*[}{,.^\-\|])(.{0,7}|[^0-9]*|[^a-z]*)")
 

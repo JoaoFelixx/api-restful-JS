@@ -1,6 +1,6 @@
-CREATE DATABASE users_csp;
-
-USE users_csp;
+CREATE DATABASE directory_contacts;
+ 
+USE directory_contacts;
 
 CREATE TABLE phones (
   phone_id VARCHAR(255),
