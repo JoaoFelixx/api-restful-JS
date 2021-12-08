@@ -38,9 +38,6 @@ HTTP | ROUTE | BODY | DESCRIÇÃO |
 ## Rota GET que pega todos os usuários:
 ![Todos os usuários](./photos/get.png)
  
-## Rota GET que pega um usuário em específico:
-![Usuário por email](./photos/byEmail.png)
- 
 ## Rota POST que cria usuários:
 ![Cria os usuários](./photos/post.png)
  

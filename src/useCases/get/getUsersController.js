@@ -1,7 +1,7 @@
-const getAllUsers = require('./getAllUsers');
+const getUsers = require('./getUsers');
 
 async function getAllUsersController(request, response) {
-  return await getAllUsers()
+  return await getUsers()
     .then(([rows]) => response.status(200).json(rows))
       .catch((err) => response.sendStatus(500))
 }
