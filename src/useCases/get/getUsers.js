@@ -1,8 +1,8 @@
-const { get } = require('../../repository/UserRepository')
+const { userService } = require('../../factories');
 
 async function getAllUsers() {
   try {
-    return await get()
+    return await userService.get()
 
   } catch (error) {
     throw new Error(error)

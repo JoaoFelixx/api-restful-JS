@@ -1,15 +1,15 @@
 const { mysqlConnection: MySql } = require('../connection');
 
 class UserRepository {
-  
+
   async get() {
     return await MySql.promise().query(
       'SELECT * FROM `users` INNER JOIN phones ON users.phone_id = phones.phone_id'
     )
   }
 
-  async add(_id, user) {
-    const { first_name, last_name, email } = user;
+  async add(user) {
+    const { _id ,first_name, last_name, email } = user;
 
     return await MySql.promise().execute(
       'INSERT INTO `users` (user_id ,first_name, last_name, email, phone_id) VALUES (?,?,?,?,?)',

@@ -16,7 +16,7 @@ class PhoneRepository {
     )
   }
 
-  async edit(phone_number, _id) {
+  async edit(_id, phone_number) {
     return await MySQL.promise().execute(
       'UPDATE `phones` SET phone_number = ? WHERE phone_id = ?',
       [phone_number, _id]
