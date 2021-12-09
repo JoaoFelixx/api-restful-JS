@@ -20,7 +20,7 @@ class UserService {
   }
 
   async update(_id, user) {
-    return await this.userRepository.edit(user)
+    return await this.userRepository.edit(_id,user)
   }
 }
 

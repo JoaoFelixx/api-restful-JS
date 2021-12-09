@@ -4,12 +4,10 @@ const {
 } = require('../../factories');
 
 async function updateUser(user, _id) {
-  try {
-    const { first_name, last_name, email, phone_number} = user;
-    
+  try {    
     return await Promise.all([
-      await userService.edit(first_name, last_name, email, _id),
-      await phoneService.edit(phone_number, _id)
+      await userService.update(_id, user),
+      await phoneService.update(_id, user.phone_number)
     ])
 
   } catch (error) {

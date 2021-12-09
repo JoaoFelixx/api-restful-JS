@@ -1,18 +1,25 @@
 const updateUser = require('./updateUser');
+const { User } = require('../../entities')
 
 async function updateUserController(request, response) {
-  if (!request.body.first_name || !request.body.last_name || !request.body.email || !request.body.phone_number || !request.params._id)
-    return response.status(400).json({ result: 'Bad request' })
+  try {
+    request.body._id = request.params._id;
+    
+    const user = new User(request.body);
 
-  if (errorName.length > 0 || errorEmail.length > 0 || errorPhoneNumbers.length > 0)
-    return response.status(400).json({ result: [errorName, errorEmail, errorPhoneNumbers] })
+    const { error, valid } = user.isValid();
+    
+    if (!valid) 
+      return response.status(400).json({ error: error.join(', ')});
+  
+    await updateUser(request.body, request.params._id)
 
+    return response.status(202).json({ result: 'Updated the user' });
 
-  return await updateUser(request.body, request.params._id)
-    .then(
-      () => response.status(202).json({ result: 'User updated' }))
-    .catch(
-      (err) => response.status(400).json({ result: 'Email or number not exists' }))
+  } catch (err) {
+    console.log(err)
+    response.status(400).json({ result: 'Email or number not exists' })
+  }
 }
 
 module.exports = updateUserController;
