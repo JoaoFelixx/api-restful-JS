@@ -8,9 +8,7 @@ async function createUserController(request, response) {
     const { error, valid } = user.isValid();
   
     if (!valid) 
-      return response
-        .status(400)
-        .json({ error: error.join(', ')});
+      return response.status(400).json({ error: error.join(', ')});
   
     await createUser(user);
     

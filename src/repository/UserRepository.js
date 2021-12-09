@@ -8,6 +8,13 @@ class UserRepository {
     )
   }
 
+  async getById(_id) {
+    return await mySql.promise().execute(
+      'SELECT * FROM `users` INNER JOIN phones ON users.phone_id = phones.phone_id WHERE user_id = ?',
+      [_id]
+    )
+  }
+
   async add(user) {
     const { _id ,first_name, last_name, email } = user;
 

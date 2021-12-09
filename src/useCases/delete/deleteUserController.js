@@ -1,4 +1,3 @@
-const validator  = require("../../controllers/Validator");
 const deleteUser = require('./deleteUser');
 
 async function deleteUserController(request, response) {

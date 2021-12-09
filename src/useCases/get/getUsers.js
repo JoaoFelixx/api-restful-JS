@@ -1,9 +1,12 @@
 const { userService } = require('../../factories');
 
-async function getAllUsers() {
+async function getAllUsers(_id) {
   try {
-    return await userService.get()
+    if (!_id)
+      return await userService.get()
 
+    return await userService.getById(_id);
+    
   } catch (error) {
     throw new Error(error)
   }
