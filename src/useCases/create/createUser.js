@@ -1,15 +1,15 @@
-const { 
+const {
   userService,
-  phoneService, 
+  phoneService,
 } = require('../../factories');
 
-async function createUser(_id, user) {
+async function createUser(user) {
   try {
     return await Promise.all([
-      await phoneService.add(_id, user.phone_number),
-      await userService.add(_id, user)
+      phoneService.add(user._id, user.phone_number),
+      userService.add(user)
     ])
-  
+
   } catch (error) {
     throw new Error(error);
   }

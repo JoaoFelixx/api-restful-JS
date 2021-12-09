@@ -12,7 +12,7 @@ class UserService {
   }
   
   async remove(_id) {
-    return await this.userRepository.remove(user)
+    return await this.userRepository.remove(_id)
   }
 
   async update(_id, user) {
