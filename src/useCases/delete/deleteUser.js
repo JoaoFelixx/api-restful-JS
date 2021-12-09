@@ -6,8 +6,8 @@ const {
 async function deleteUser(_id) {
   try {
     return await Promise.all([
-      await userService.remove(_id),
-      await phoneService.removeById(_id)
+      userService.remove(_id),
+      phoneService.remove(_id)
     ])
   
   } catch (error) {

@@ -9,7 +9,7 @@ class PhoneRepository {
     )
   }
 
-  async removeById(_id) {
+  async remove(_id) {
     return await mySql.promise().execute(
       'DELETE FROM `phones` WHERE phone_id = ?',
       [_id]
